@@ -1,0 +1,98 @@
+<html>
+<head>
+	<title>Validation form </title>
+<style>
+.box{
+	margin: auto;
+	  
+	  margin-left: 425px;
+}
+h1{
+ color: green;
+ margin-left: 425px;
+ font-size: 50px;
+}
+#submit{
+	background-color: green;
+	width: 200px;
+	height: 50px;
+	border-radius: 20px;
+}
+.effect{
+
+	background-color: white;
+	width: 300px;
+	height: 50px
+}
+.red{
+	color: red;
+}
+</style>
+</head>
+<body>
+<h1> Validation form</h1>
+<div class="box">
+<form onsubmit="return validation()">
+<label>Name</label><br>
+<input type="text" name="Name" id="name" class="effect"><br>
+<span id="user" class="red"></span><br>
+<label>Email</label><br>
+<input type="text" name="Email" id="email" class="effect"><br>
+<span id="emails" class="red"></span><br>
+<label>Password</label><br>
+<input type="password" name="Password" id="pass" class="effect"><br>
+<span id="password" class="red"></span><br>
+<label>Confirm Password</label><br>
+<input type="password" name="Confirm_password" id="conpass" class="effect"><br>
+<span id="confirmpass" class="red"></span><br>
+<input type="submit" name="submit" value="submit" id="submit">
+</form>
+</div>
+<script>
+
+function validation(){
+	var name= document.getElementById('name').value;
+	var email= document.getElementById('email').value;
+	var pass= document.getElementById('pass').value;
+	var conpass= document.getElementById('conpass').value;
+
+
+if(name == ""){
+     document.getElementById('user').innerHTML = "** Please fill Name";
+     return false;
+}
+if((name.length <=2) &&(name.length > 20)){
+	document.getElementById('user').innerHTML = "**characters must be in between 2 to 20";
+	return false;
+}
+
+
+if(email == ""){
+     document.getElementById('emails').innerHTML = "** Please fill Email";
+     return false;
+}
+
+
+
+if(pass == ""){
+     document.getElementById('password').innerHTML = "** Please fill Password";
+     return false;
+}
+if((pass.length <5)&&(pass.length>= 20)){
+	document.getElementById('password').innerHTML = "**characters must be in between 2 to 20";
+     return false;
+	}
+
+
+if(conpass == ""){
+     document.getElementById('confirmpass').innerHTML = "** Please fill confirm Password";
+     return false;
+}
+if(pass !== conpass){
+	document.getElementById('confirmpass').innerHTML= "**Confirm password must match with password";
+	return false;
+}
+}
+</script>
+</body>
+</html>
